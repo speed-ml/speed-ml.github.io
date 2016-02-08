@@ -1,0 +1,15 @@
+---
+layout: post
+title:  "Practical 2: Digit recognition"
+date:   2016-02-05 00:00:00 +0200
+description: Love thy neighbours.
+category: practical
+---
+
+In the second assignment we will tackle the task of digit recognition.
+We will work on the classic MNIST dataset and implement the venerable K nearest neighbour (K-NN) algorithm.
+We will 
+1. see how to use cross-validation to find the optimal value for the parameter K;
+2. implement some evaluation metrics (accuracy, precision, recall);
+3. diagnose the results by visualizing the first negative example and the last positive example.
+

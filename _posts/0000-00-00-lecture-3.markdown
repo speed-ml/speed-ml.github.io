@@ -1,0 +1,26 @@
+---
+layout: post
+title:  "Lecture 3: Optimization methods and loss functions"
+date:   2016-02-05 00:00:00 +0200
+description: The ingredients of a learning algorithm.
+category: lecture
+---
+
+Two of the learning algorithms' ingredients are the optimization method and the loss function.
+We will see how to use the first (gradient descent) and second-order (Newton's method) gradient information to find the optimum of a function.
+Once we understand the importance of gradient-based optimization, we can motivate choosing various smooth loss functions instead of the binary 0-1 loss.
+As practical examples, we analyze two more learning algorithms, the perceptron and the logistic regression.
+
+## Optimization
+
+* Why optimize and the benefits of gradient-based optimization.
+* First-order methods: gradient descent and stochastic gradient descent.
+* Second-order methods: Newton’s method.
+
+## Loss functions
+
+* Peceptron.
+* Logistic regression.
+
+## Additional resources
+

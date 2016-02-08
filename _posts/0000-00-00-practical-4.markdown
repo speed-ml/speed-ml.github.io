@@ -1,0 +1,31 @@
+---
+layout: post
+title:  "Lecture 4: Non-linear models"
+date:   2016-02-05 00:00:00 +0200
+description: More powerful learning models.
+categories: practical
+---
+
+Learning algorithms, such as the perceptron or logistic regression, are linear models.
+Non-linear models have, however, better separation power.
+In this lecture we will see how to turn a linear model into a non-linear one by explicitly embedding its features into a higher dimensional space.
+For complex data (images, sound, text) the most powerful features include non-linear steps.
+Finally, we will look at neural networks and deep learning and see how they learn such powerful, non-linear features.
+
+## Explicit embeddings
+
+* Polynomial features
+
+## Implicit embeddings
+
+* Kernels
+* Kernelizing logisitic regression.
+
+## Examples of features
+
+* Image
+* Sound
+* Text
+
+## Additional resources
+

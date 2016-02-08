@@ -1,0 +1,54 @@
+---
+layout: post
+title:  "Lecture 1: Introduction"
+date:   2016-02-05 00:00:00 +0200
+description: Why machine learning is worth studying and an overview.
+categories: lecture
+---
+
+We start off with a gentle introduction into machine learning.
+This lecture aims to motivate the course and provide the big picture.
+First, we showcase examples and applications of machine learning (e.g., face detection, spam classification, recommender systems).
+Second, we present: (i) various types of learning; (ii) the relation between machine learning and related disciplines; (iii) the ingredients of a learning algorithm.
+Finally, we will introduce our first learning algorithm, the decision trees.
+
+## Examples 
+
+* Face detection
+* Spam classification
+* Recommender systems.
+
+Quiz:
+Can you come up with another example?
+Why would you count it as machine learning?
+
+## Types of learning
+
+* Supervised learning
+* Unsupervised learning
+* Semi-supervised learning
+* Reinforcement learning
+
+Quiz.
+
+## Machine learning and related disciplines
+
+* Artificial intelligence
+* Statistics
+* Data science
+* Big data
+
+## Decision trees
+
+* Define the classification task
+* Our first algorithm
+* Our first _learning_ algorithm
+
+## Ingredients of a learning algorithm
+
+* Hypothesis set
+* Optimization
+* Loss function
+
+## Additional resources
+

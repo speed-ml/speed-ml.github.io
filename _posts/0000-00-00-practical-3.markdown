@@ -1,0 +1,13 @@
+---
+layout: post
+title:  "Practical 3: Logistic regression"
+date:   2016-02-05 00:00:00 +0200
+description: The ingredients of a learning algorithm.
+category: practical
+---
+
+For this assignment we will implement the logistic regression algorithm.
+We will make use of basic linear algebra to compute the gradient of the loss function (see the Matrix Cookbook).
+Then we will check the gradient by comparing it to numerically differentiating the loss function.
+In order to find the optimal parameters of the logistic regression we will implement the gradient descent method.
+

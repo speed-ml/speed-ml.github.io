@@ -1,0 +1,24 @@
+---
+layout: post
+title:  "Lecture 5: Deep learning"
+date:   2016-02-05 00:00:00 +0200
+description: Learning all the way—features and classifiers.
+categories: lecture
+---
+
+Learning feature representations.
+
+## Neural networks
+
+* Perceptron revisted.
+* Multi-layer perceptron.
+* Activation functions.
+* Backpropagation for efficient gradient computation.
+
+## Convolutional neural networks
+
+* Types of convolutional layers.
+* Case studies: AlexNet and VGGNet.
+* Understanding and visualising convolutional neural networks.
+
+## Additional resources

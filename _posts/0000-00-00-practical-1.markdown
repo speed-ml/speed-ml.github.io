@@ -1,0 +1,16 @@
+---
+layout: post
+title:  "Practical 1: Introduction to classification"
+date:   2016-02-05 00:00:00 +0200
+description: Telling apart oranges from lemons.
+categories: practical
+---
+
+In the first assignment we will play with a small and interpretable dataset, such as, Iain Murray's Orange and Lemons dataset, and perform tasks that include:
+
+1. data visualisations;
+2. implementing a classification algorithm by setting thresholds;
+3. implementing a classification algorithm by learning the thresholds (a simple decision tree).
+
+For the classification algorithms, we will visualize their decision boundaries and investigate the errors (the misclassified data points).
+

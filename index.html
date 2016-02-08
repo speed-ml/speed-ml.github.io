@@ -1,1 +1,78 @@
-Hello World
+---
+layout: default
+---
+
+<div class="home">
+
+  <p>
+  Welcome to the <i>machine learning</i> class!
+  This is an introductory course offered by the <a href="http://speed.pub.ro">SpeeD</a> lab.
+  </p>
+
+  <p>
+  Artificial intelligence and machine learning were highly anticipated research advances.
+  In the 1990s we were watching Terminator performing science fiction tasks such as object detection or face recognition;
+  today we are daily consumers of machine learning without even realising it &mdash;
+  our mobiles can automatically detect faces in the pictures we take,
+  email services filter out spam from the rest of the received emails,
+  we are being recommended new items based on our shopping history.
+  This course aims to demystify such applications, empowering you with the ability to create similar algorithms.
+  </p>
+
+  <h1 class="page-heading">Learning outcomes</h1>
+
+  <p>
+  By the end of the course the students should be able to:
+  <ul>
+      <li>Identify machine learning tasks in real-word problems.</li>
+      <li>Use existing tools to solve such tasks.</li>
+      <li>Understand the components of a learning algorithm.</li>
+      <li>Know the main steps of applying a machine learning algorithm in practice.</li>
+      <li>Understand and be able to compare different learning algorithms.</li>
+  </ul>
+  </p>
+
+  <h1 class="page-heading">Administration</h1>
+
+  <p>
+  This course will consist of a series of five lectures, each followed by a practical assignment.
+  The final project is a presentation describing a machine learning solution for a problem of interest.
+  </p>
+
+  <p>
+  Students are expected to be familiar with basic programming (Python) and mathematics (linear algebra).
+  Take a look at the following collection of exercises;
+  this is designed to warm you up and prepare for the course.
+  </p>
+
+  <p>
+  Please use the forum to ask questions, report typos and bugs from these lecture notes.
+  </p>
+
+  <h1 class="page-heading">Lectures</h1>
+
+  <ul class="post-list">
+    {% for post in site.posts reversed %}
+        {% if post.categories contains 'lecture' %}
+        <li>
+            <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+            <div class="post-description">{{ post.description }}</div>
+        </li>
+        {% endif %}
+    {% endfor %}
+  </ul>
+
+  <h1 class="page-heading">Practicals</h1>
+
+  <ul class="post-list">
+    {% for post in site.posts reversed %}
+        {% if post.categories contains 'practical' %}
+        <li>
+            <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+            <div class="post-description">{{ post.description }}</div>
+        </li>
+        {% endif %}
+    {% endfor %}
+  </ul>
+
+</div>

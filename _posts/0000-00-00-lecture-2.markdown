@@ -1,0 +1,29 @@
+---
+layout: post
+title:  "Lecture 2: Theory and practice of machine learning"
+date:   2016-02-05 00:00:00 +0200
+description: Why machine learning works.
+category: lecture
+---
+
+In the second lecture we will delve into the practicalities of machine learning.
+We will look at how to test and evaluate our models using various metrics (e.g., accuracy, precision, recall).
+The most important quality of a learning algorithm is its generalization capability.
+We will see that a common cause of poor performance is the phenomenon of overfitting, when the algorithm just "memorizes" the train data; we will look at a couple of ways of preventing overfitting through cross-validation and regularization.
+
+## Metrics
+
+* Accuracy
+* Precision
+* Recall
+
+## Overfitting
+
+* What is overfitting?
+* Solution to overfitting: validation
+* Solution to overfitting: regularization
+
+## Curse of dimensionality
+
+## Additional resources
+
