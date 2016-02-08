@@ -1,31 +1,14 @@
 ---
 layout: post
-title:  "Lecture 4: Non-linear models"
+title:  "Practical 4: Action recognition"
 date:   2016-02-05 00:00:00 +0200
-description: More powerful learning models.
+description: Combining features for multi-modal data.
 categories: practical
 ---
 
-Learning algorithms, such as the perceptron or logistic regression, are linear models.
-Non-linear models have, however, better separation power.
-In this lecture we will see how to turn a linear model into a non-linear one by explicitly embedding its features into a higher dimensional space.
-For complex data (images, sound, text) the most powerful features include non-linear steps.
-Finally, we will look at neural networks and deep learning and see how they learn such powerful, non-linear features.
+First, on a two-dimensional dataset we will change the input of a linear classification algorithm to explicitly embedded features (e.g., polynomial features).
+We will visualize the decision boundary and see that, indeed, it's non-linear.
 
-## Explicit embeddings
-
-* Polynomial features
-
-## Implicit embeddings
-
-* Kernels
-* Kernelizing logisitic regression.
-
-## Examples of features
-
-* Image
-* Sound
-* Text
-
-## Additional resources
-
+Second, we will work on task of action recognition.
+We will use the provided features, which are extracted from different modalities (appearance, motion, audio), to train classifiers for the various actions.
+We will investigate which modalities are better suited for which actions and we will combine the classifiers to improve the performance.
