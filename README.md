@@ -1,2 +1,3 @@
-# speed-ml.github.io
-Webpage for SpeeD's Machine Learning course
+# SpeeD ML
+
+[Webpage](speed-ml.github.io) for SpeeD's Machine Learning course
