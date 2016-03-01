@@ -1,0 +1,31 @@
+
+.mybox{
+    padding: 10px;
+}
+
+.example {
+    background-color: lavender;
+}
+
+.definition {
+    background-color: lavenderblush;
+}
+
+.quiz {
+    background-color: honeydew;
+}
+
+div.mybox + p.mybox {
+    margin-top: 20px;
+}
+
+div.mybox + div.mybox {
+    margin-top: 20px;
+}
+
+div.mybox img {
+    display: block;
+    margin: 0 auto;
+    width: 400px;
+}
+

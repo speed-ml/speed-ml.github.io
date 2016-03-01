@@ -6,49 +6,254 @@ description: Why machine learning is worth studying and an overview.
 categories: lecture
 ---
 
-We start off with a gentle introduction into machine learning.
-This lecture aims to motivate the course and provide the big picture.
-First, we showcase examples and applications of machine learning (e.g., face detection, spam classification, recommender systems).
-Second, we present: (i) various types of learning; (ii) the relation between machine learning and related disciplines; (iii) the ingredients of a learning algorithm.
-Finally, we will introduce our first learning algorithm, the decision trees.
+Hello and welcome to our first lecture on machine learning!
+This lecture aims to provide a gentle introduction into the course.
+First, we will look at some examples and applications of machine learning;
+second, we will provide an overview of the field;
+third, we will introduce our first learning algorithm: the decision trees.
 
-## Examples 
+## Examples of machine learning
 
-* Face detection
-* Spam classification
-* Recommender systems.
+Machine learning has been used to solve many interesting and often difficult
+[real-world problems](http://dataconomy.com/wp-content/uploads/2015/03/Introduction-What-is-a-Recommendation-Engine-Netflix.jpg).
+Here are some examples.
 
-Quiz:
-Can you come up with another example?
-Why would you count it as machine learning?
+<div class="mybox example" markdown="1">
+_Face detection._
+Given an image we want to automatically find where the faces are located.
+
+![The task of face detection](https://www.ecse.rpi.edu/~cvrl/wp/face_detect_result.jpg)
+
+This task is seemingly easy, as we can find faces with ease (at least, [most of the time](https://helpingtheblind.files.wordpress.com/2010/08/face-in-beans.jpg?w=810)).
+However, if we look through the eyes of a machine, we will find the difficulty: [a picture is just a collection of numbers](http://openframeworks.cc/ofBook/images/image_processing_computer_vision/images/lincoln_pixel_values.png).
+
+Face detection has been tackled for a long time by the community of researchers,
+and the performance improved considerably over time—nowadays performance of automatic face detection is surpassing human-level performance.
+Following these advances, many services incoprorate face detection:
+hand-held devices (cameras, phones) and web services (Facebook).
+</div>
+
+{: .mybox .example}
+_Spam classification._
+Another application of machine learning that enjoyed commercial success is spam classification.
+The goal is to tell spam emails from non-spam ones.
+
+<div class="mybox example" markdown="1">
+_Recommender systems._
+The task is to seek to predict the 'rating' or 'preference' that a user would give to an item.
+This application is common among many services that provide the users the ability to buy or rate items (_e.g._, Amazon, Netflix, Goodreads).
+
+![Recommendations on Netflix](http://dataconomy.com/wp-content/uploads/2015/03/Introduction-What-is-a-Recommendation-Engine-Netflix.jpg)
+
+This task has become popular in the machine learning community with the [Netflix challenge](http://www.netflixprize.com/):
+give a prize of $1,000,000 for the team who would improve the results by 10%.
+The competition started in 2006 and the prize was claimed three years latter.
+</div>
+
+We define machine learning as a set of methods that can automatically detect patterns in data,
+and then use the uncovered patterns to predict future data,
+or to perform other kinds of decision making under uncertainty.
+
+{: .mybox .quiz}
+_Quiz._
+How would you design an algorithm to solve one of the above tasks?
+
+{: .mybox .quiz}
+_Quiz._
+What are some other machine learning applications?
+
 
 ## Types of learning
 
-* Supervised learning
-* Unsupervised learning
-* Semi-supervised learning
-* Reinforcement learning
+Machine learning has two main sub-fields: supervised learning and unsupervised learning.
+In supervised learning the focus is on accurate prediction, whereas in unsupervised learning the aim is to find compact descriptions of the data.
+In both cases, one is interested in methods that generalise well to previously unseen data.
+This course is concerned with supervised learning, but we will give an overview of both branches before delving into more details.
 
-Quiz.
+**Supervised learning.**
+In supervised learning we are providing the machine with examples of a certain behaviour (training) and it has to figure out how to generalize to new, unseen examples (testing).
+The examples we looked at in the previous section are examples of supervised learning;
+let us revisit them.
+
+{: .mybox .example}
+_Face detection._
+At train time we are showing the machine pictures of faces and non-faces.
+At test time, we divide the image into many small overlapping patches at different locations, scales and orientations,
+and classify each such patch based on whether it contains face-like texture or not.
+This is called a sliding window detector.
+The system then returns those locations where the probability of face is sufficiently high.
+
+{: .mybox .example}
+_Learning with a teacher._
+Explaining what supervised learning is by showing examples is yet another example of supervised learning in action.
+This is why sometimes supervised learning is known as learning with a teacher.
+
+{: .mybox .definition}
+_Definition._
+Given a set of data $$\mathcal{D} = \{(\mathbf{x}_n,y_n); n=1,\dots,N\}$$ the task is to learn the relationship between the input $$\mathbf{x}$$ and output $$y$$ such that,
+when given a novel input $$\mathbf{x}^∗$$ the predicted output $$y^∗$$ is accurate.
+The pair $$(\mathbf{x}^∗, y^∗)$$ is not in $$\mathcal{D}$$ but assumed to be generated by the same unknown process that generated $$\mathcal{D}$$. 
+
+The ability to categorize correctly new examples that differ from those used for training is known as generalization.
+In practical applications, the variability of the input vectors will be such that the training data can comprise only a tiny fraction of all possible input vectors, and so generalization is a central goal in pattern recognition
+
+**Unsupervised learning.**
+We are just given output data, without any inputs.
+The goal is to discover “interesting structure” in the data; this is sometimes called knowledge discovery.
+Unlike supervised learning, we are not told what the desired output is for each input.
+
+Unsupervised learning is arguably more typical of human and animal learning.
+It is also more widely applicable than supervised learning, since it does not require a human expert to manually label the data.
+Labeled data is not only expensive to acquire, but it also contains relatively little information, certainly not enough to reliably estimate the parameters of complex models.
+
+The goal in such unsupervised learning problems may be to discover groups of similar examples within the data, where it is called clustering, or to determine the distribution of data within the input space, known as density estimation, or to project the data from a high-dimensional space down to two or three dimensions for the purpose of visualization.
+
+{: .mybox .example}
+_Example._
+As a canonical example of unsupervised learning, consider the problem of clustering data into groups.
+In e-commerce, it is common to cluster users into groups, based on their purchasing or web-surfing behavior, and then to send customized targeted advertising to each group.
+
+{: .mybox .definition}
+_Definition._
+Given a set of data $$\mathcal{D} = \{\mathbf{x}_n; n=1,\dots,N\}$$ in unsupervised learning we aim to find a plausible compact description of the data.
+An objective is used to quantify the accuracy of the description.
+In unsupervised learning there is no special prediction variable so that, from a probabilistic perspective, we are interested in modelling the distribution $$p(\mathbf{x})$$.
+The likelihood of the model to generate the data is a popular measure of the accuracy of the description. 
+
+**Semi-supervised learning.**
+In machine learning, a common scenario is to have a small amount of labelled and a large amount of unlabelled data.
+For example, it may be that we have access to many images of faces; however, only a small number of them may have been labelled as instances of known faces.
+In semi-supervised learning, one tries to use the unlabelled data to make a better classifier than that based on the labelled data alone.
+This is a common issue in many examples since often gathering unlabelled data is cheap (taking photographs, for example).
+However, typically the labels are assigned by humans, which is expensive.
+
+**Reinforcement learning.**
+In certain situations, an agent may be able to interact in some manner with its environment.
+This interaction can complicate but also enrich the potential for learning.
+In reinforcement learning an agent inhabits an environment in which it may take actions.
+Some actions may eventually be beneficial (lead to food for example), whilst others may be disastrous (lead to being eaten for example).
+Based on accumulated experience, the agent needs to learn which action to take in a given situation in order to maximise the probability of obtaining a desired long term goal (long term survival, for example).
+Actions that lead to long term rewards need to be reinforced.
+
+This is useful for learning how to act or behave when given occasional reward or punishment signals.
+
+Finally, the technique of reinforcement learning (Sutton and Barto, 1998) is concerned with the problem of finding suitable actions to take in a given situation in order to maximize a reward.
+Here the learning algorithm is not given examples of optimal outputs, in contrast to supervised learning, but must instead discover them by a process of trial and error.
+Typically there is a sequence of states and actions in which the learning algorithm is interacting with its environment.
+In many cases, the current action not only affects the immediate reward but also has an impact on the re- ward at all subsequent time steps.
+ 
+<div class="mybox quiz" markdown="1">
+_Quiz._
+What types of learning, if any, best describe the following three scenarios:
+
+* A coin classification system is created for a vending machine. The developers obtain exact coin specifications from the U.S. Mint and derive a statistical model of the size, weight, and denomination, which the vend- ing machine then uses to classify coins.
+* Instead of calling the U.S. Mint to obtain coin information, an algorithm is presented with a large set of labeled coins. The algorithm uses this data to infer decision boundaries which the vending machine then uses to classify its coins.
+* A computer develops a strategy for playing Tic-Tac-Toe by playing repeatedly and adjusting its strategy by penalizing moves that eventually lead to losing.
+</div>
+
+<div class="mybox quiz" markdown="1">
+_Quiz._
+Which of the following problems are best suited for machine learning?
+
+* Classifying numbers into primes and non-primes.
+* Detecting potential fraud in credit card charges.
+* Determining the time it would take a falling object to hit the ground.
+* Determining the optimal cycle for traffic lights in a busy intersection.
+</div>
 
 ## Machine learning and related disciplines
 
-* Artificial intelligence
-* Statistics
-* Data science
-* Big data
+Now that we got a flavour of machine learning, let us contrast it to related fields such as artificial intelligence, data science, big data, statistics.
+Certainly there is considerable overlap among these fields of research, but some distinctions can be made.
+
+Artificial intelligence (AI) is the study and design of intelligent agents.
+The end goal of AI is human-like intelligence.
+AI is a broad field and it encompasses disciplines like reasoning, knowledge, planning, learning, natural language processing, perception and the ability to move and manipulate objects.
+Many of these tasks require the ability to induce new knowledge from previous experiences,
+hence machine learning can be regarded a large area within AI.
+
+Data science and big data are much more recent topics and they refer to the more practical side of machine learning.
+Data science is carried out by a person, in a specific situation, on a particular data set, with a goal in mind.
+Quite often, the data set is massive, complicated and there may be special problems (missing or incomplete data, noisy data).
+Usually, the goal is either to discover or generate some preliminary insights in an area where there really was little knowledge beforehand,
+or to be able to predict future observations accurately.
+Big data is usually concerned with the practical tools that are needed for exploiting large quantities of data.
+
+Statistics is more geared towards mathematics and proability.
+The goal is not only predictive, but it also tries to come with some guarantees about the data.
+It's oftened geread towards more interpretable results, so it is mostly employed towards better understanding some particular data generating process.
+Thus, it usually starts with a formally specified model, and from this are derived procedures to accurately extract that model from noisy instances (i.e., estimation--by optimizing some loss function) and to be able to distinguish it from other possibilities (i.e., inferences based on known properties of sampling distributions).
+
+For further references you can check relevant discussions on stats.stackexchange:
+
+* [What is the difference between data minging, statistics, machine learning and AI?] 
+* [The two cultures: statistics versus machine learning]
 
 ## Decision trees
 
-* Define the classification task
-* Our first algorithm
-* Our first _learning_ algorithm
+**Lemons and oranges.**
+Let us start our inquiry into the world of machine learning with a simpler task then what we have seen efort:
+telling appart lemons from oranges.
+
+![Lemons and oranges](http://www.donatantonio.com/wp-content/uploads/2012/03/Oranges-and-Lemons-704x333.jpg)
+
+Let's assume we have a device that can automatically recorded the height, width and mass of a fruit
+and based on these measurement we want to predict if a new fruit is whether a lemon or an orange.
+
+<img src="http://media.front.xoedge.com/images/601136c6-8740-4527-9ac4-ad6dc2b6cfc9?compression=true" alt="Drawing" style="width: 300px;"/>
+<img src="http://media.front.xoedge.com/images/524241d4-a7ce-4c9d-a919-522a5dd6f7cf?compression=true&quality=75" alt="Drawing" style="width: 300px;"/>
+
+**Classification.**
+If the output is one of a discrete number of possible ‘classes’, this is called a classification problem.
+In classification problems we will generally use $$c$$ for the output.
+If the output is continuous, this is called a regression problem.
+For example, based on historical information of demand for sun-cream in your supermarket, you are asked to predict the demand for the next month.
+In some cases it is possible to discretise a continuous output and then consider a corresponding classification problem.
+However, in other cases it is impractical or unnatural to do this, for example if the output y is a high dimensional continuous valued vector.
+
+If $$C = 2$$, this is called binary classification (in which case we often assume $$y \in \{0, 1\}$$); if $$C > 2$$, this is called multiclass classification.
+If the class labels are not mutually exclusive (e.g., somebody may be classified as tall and strong),
+we call it multi-label classification, but this is best viewed as predicting multiple related binary class labels (a so-called multiple output model).
+When we use the term “classification”, we will mean multiclass classification with a single output, unless we state otherwise.
+
+**Our first algorithm.**
+
+<img src="assets/lecture_1/lemons_vs_oranges_plot.png" alt="Lemons and oranges plot" style="width: 300px;"/>
+
+**Our first _learning_ algorithm.**
 
 ## Ingredients of a learning algorithm
 
-* Hypothesis set
-* Optimization
-* Loss function
+**Representation.**
+A classifier must be represented in some formal language that the computer can handle.
+Conversely, choosing a representation for a learner is tantamount to choosing the set of classifiers that it can possibly learn.
+This set is called the hypothesis space of the learner.
+If a classifier is not in the hypothesis space, it cannot be learned.
+A related question, which we will address in a later section, is how to represent the input, i.e., what features to use.
+
+**Evaluation.**
+An evaluation function (also called objective function or scoring function) is needed to distinguish good classifiers from bad ones.
+The evaluation function used internally by the algorithm may differ from the external one that we want the classifier to optimize, for ease of optimization (see below) and due to the issues discussed in the next section.
+
+**Optimization.**
+Finally, we need a method to search among the classifiers in the language for the highest-scoring one.
+The choice of optimization technique is key to the efficiency of the learner, and also helps determine the classifier produced if the evaluation function has more than one optimum.
+It is common for new learners to start out using off-the-shelf optimizers, which are later replaced by custom-designed ones.
 
 ## Additional resources
 
+* Reading: Chapter 13 "Machine Learning Concepts" from David Barber's [Bayesian Reasoning and Machine Learning].
+* Reading: [Chapter 1 of CIML]
+* Pedro Domingos. [A Few Useful Things to Know about Machine Learning]. CACM, 2012.
+* Video: Iain Murray — Introduction to Machine Learning, Part 1
+* Video: Sam Roweis — Machine Learning, Probability and Graphical Models, Part 1
+* Video: Neil Lawerence — [What is machine learning]
+* Discussion: [What is the difference between data minging, statistics, machine learning and AI?] 
+* Discussion: [The two cultures: statistics versus machine learning]
+
+[A Few Useful Things to Know about Machine Learning]: https://homes.cs.washington.edu/~pedrod/papers/cacm12.pdf
+[Bayesian Reasoning and Machine Learning]: http://web4.cs.ucl.ac.uk/staff/D.Barber/textbook/181115.pdf
+[What is the difference between data minging, statistics, machine learning and AI?]: http://stats.stackexchange.com/questions/5026/what-is-the-difference-between-data-mining-statistics-machine-learning-and-ai
+[The two cultures: statistics versus machine learning]: http://stats.stackexchange.com/questions/6/the-two-cultures-statistics-vs-machine-learning
+[What is machine learning]: http://videolectures.net/mlss2010_lawrence_mlfcs/
+[Chapter 1 of CIML]: http://ciml.info/dl/v0_9/ciml-v0_9-ch01.pdf
