@@ -6,7 +6,6 @@ description: Why machine learning is worth studying and an overview.
 categories: lecture
 ---
 
-Hello and welcome to our first lecture on machine learning!
 This lecture aims to provide a gentle introduction into the course.
 First, we will look at some examples and applications of machine learning;
 second, we will provide an overview of the field;

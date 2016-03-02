@@ -16,11 +16,11 @@
 }
 
 div.mybox + p.mybox {
-    margin-top: 20px;
+    margin-top: 10px;
 }
 
 div.mybox + div.mybox {
-    margin-top: 20px;
+    margin-top: 10px;
 }
 
 div.mybox img {

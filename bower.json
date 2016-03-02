@@ -1,0 +1,22 @@
+{
+  "name": "speed-ml",
+  "homepage": "https://github.com/speed-ml/speed-ml.github.io",
+  "authors": [
+    "Dan Oneata <dan.oneata@gmail.com>"
+  ],
+  "description": "Web-page for SpeeD's machine learning course",
+  "main": "",
+  "moduleType": [],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.6"
+  }
+}
